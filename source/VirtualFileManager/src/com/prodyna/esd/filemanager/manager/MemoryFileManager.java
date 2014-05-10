@@ -17,6 +17,13 @@ public class MemoryFileManager implements FileManager {
 	private MemoryFileManager() {
 		
 	}
+	
+	@Override
+	public <T extends Node> T addNode(T node)
+			throws FileManagerException {
+		
+		return addNode(rootNode(), node);
+	}
 
 	@Override
 	public <T extends Node> T addNode(Directory parentNode, T node)
@@ -26,7 +33,7 @@ public class MemoryFileManager implements FileManager {
 		
 		parentNode.addChild(node);
 		
-		return null;
+		return node;
 	}
 
 	private void validateAddNode(Directory parentNode, Node node) throws FileManagerException {
@@ -38,7 +45,11 @@ public class MemoryFileManager implements FileManager {
 	@Override
 	public Directory rootNode() throws FileManagerException {
 		if (this.rootNode == null) {
-			this.rootNode = new Directory("");
+			synchronized (this) {
+				if (this.rootNode == null) {
+					this.rootNode = new Directory("");
+				}
+			}
 		}
 		
 		return this.rootNode;
