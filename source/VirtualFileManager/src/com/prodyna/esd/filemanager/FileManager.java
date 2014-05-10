@@ -1,5 +1,6 @@
 package com.prodyna.esd.filemanager;
 
+import com.prodyna.esd.filemanager.command.Action;
 import com.prodyna.esd.filemanager.exception.FileManagerException;
 import com.prodyna.esd.filemanager.manager.FileManagerFactory;
 import com.prodyna.esd.filemanager.model.Directory;
@@ -18,4 +19,10 @@ public interface FileManager {
 	 * @throws FileManagerException throw an exception if the node couldn't be added
 	 */
 	abstract public void addNode(Directory parentNode, Node node) throws FileManagerException;
+	
+	abstract public void rootNode() throws FileManagerException;
+	
+	abstract public void listNodes() throws FileManagerException;
+	
+	abstract public void executeAction(Action action) throws FileManagerException;
 }
