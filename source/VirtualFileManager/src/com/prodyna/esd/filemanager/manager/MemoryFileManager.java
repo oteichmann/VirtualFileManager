@@ -36,7 +36,7 @@ public class MemoryFileManager implements FileManager {
 		
 		validateAddNode(directory, node);
 		
-		directory = getOrinialNode(directory);
+//		directory = getOrinialNode(directory);
 		
 		directory.addChild(node);
 		
