@@ -1,5 +1,6 @@
 package com.prodyna.esd.filemanager.manager;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import com.prodyna.esd.filemanager.FileManager;
@@ -10,11 +11,15 @@ import com.prodyna.esd.filemanager.model.Node;
 
 class NotifingFileManagerDecorator implements FileManager, Observable {
 	
-	private FileManager fileManager;
-	private List<Observer> observers;
+	private final FileManager fileManager;
+	private final List<Observer> observers = new LinkedList<Observer>();
 	
-	public NotifingFileManagerDecorator(FileManager inFileManager) {
-		fileManager = inFileManager;
+	public static NotifingFileManagerDecorator createNotifingFileManagerDecorator(FileManager inFileManager) {
+		return new NotifingFileManagerDecorator(inFileManager);
+	}
+	
+	private NotifingFileManagerDecorator(FileManager inFileManager) {
+		fileManager = inFileManager;		
 	}
 
 	@Override

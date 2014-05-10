@@ -1,5 +1,7 @@
 package com.prodyna.esd.filemanager.manager;
 
+import com.prodyna.esd.filemanager.FileManager;
+
 public final class FileManagerFactory {
 	
 	public static FileManagerFactory fileManagerFactory = new FileManagerFactory();
@@ -12,7 +14,8 @@ public final class FileManagerFactory {
 		return fileManagerFactory;
 	}
 
-	public MemoryFileManager createMemoryFileManager() {
-		return MemoryFileManager.createMemoryFileManager();
+	public FileManager createMemoryFileManager() {
+		MemoryFileManager memoryFileManager = MemoryFileManager.createMemoryFileManager();		
+		return NotifingFileManagerDecorator.createNotifingFileManagerDecorator(memoryFileManager);
 	}
 }

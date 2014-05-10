@@ -42,4 +42,9 @@ public abstract class Node implements NodeVisitable {
 	}
 	
 	public abstract long getSize();
+	
+	@Override
+	public String toString() {
+		return String.format("%s", getName());
+	}
 }

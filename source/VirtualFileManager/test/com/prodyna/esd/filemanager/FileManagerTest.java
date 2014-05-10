@@ -48,7 +48,7 @@ public class FileManagerTest {
 		try {
 			Directory rootNode = fileManager.rootNode();
 			File newfileNode = new File("Test1.txt");			
-			File addedFileNode = fileManager.addNode(rootNode, newfileNode);	
+			File addedFileNode = fileManager.addNode(rootNode, newfileNode);		
 			
 			assertNotNull(addedFileNode);
 			assertEquals(newfileNode.getName(), addedFileNode.getName());
