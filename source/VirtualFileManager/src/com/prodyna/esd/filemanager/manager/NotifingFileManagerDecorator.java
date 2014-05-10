@@ -8,12 +8,12 @@ import com.prodyna.esd.filemanager.exception.FileManagerException;
 import com.prodyna.esd.filemanager.model.Directory;
 import com.prodyna.esd.filemanager.model.Node;
 
-class NotifiingFileManagerDecorator implements FileManager, Observable {
+class NotifingFileManagerDecorator implements FileManager, Observable {
 	
 	private FileManager fileManager;
 	private List<Observer> observers;
 	
-	public NotifiingFileManagerDecorator(FileManager inFileManager) {
+	public NotifingFileManagerDecorator(FileManager inFileManager) {
 		fileManager = inFileManager;
 	}
 
