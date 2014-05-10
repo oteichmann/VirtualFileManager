@@ -21,7 +21,16 @@ public class MemoryFileManager implements FileManager {
 	@Override
 	public void addNode(Directory parentNode, Node node)
 			throws FileManagerException {
+		
+		validateAddNode(parentNode, node);
+		
 		// TODO Auto-generated method stub		
+	}
+
+	private void validateAddNode(Directory parentNode, Node node) throws FileManagerException {
+		if(parentNode == null || node == null) {
+			throw new FileManagerException("The parameteres parentNode and node must not be null.");
+		}
 	}
 
 	@Override
