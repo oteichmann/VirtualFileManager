@@ -7,10 +7,11 @@ public abstract class Node {
 
 	private String name;
 	private final Map<String, String> metaData;
-		
-	private Node(String inName) {
-		metaData = new HashMap<String, String>();
-		name = inName;
+	private Node parent;
+
+	public Node(String name) {
+		this.metaData = new HashMap<String, String>();
+		this.name = name;
 	}
 
 	public String getName() {
@@ -24,4 +25,13 @@ public abstract class Node {
 	public Map<String, String> getMetaData() {
 		return metaData;
 	}
+	
+	public Node getParent() {
+		return parent;
+	}
+
+	public void setParent(Node parent) {
+		this.parent = parent;
+	}
+
 }
