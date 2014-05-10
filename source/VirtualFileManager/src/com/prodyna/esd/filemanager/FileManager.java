@@ -16,9 +16,10 @@ public interface FileManager {
 	 * @param node the parent node of the node to add
 	 * @param node the node to add
 	 * 
+	 * @return the added Node, this could be a folder or file
 	 * @throws FileManagerException throw an exception if the node couldn't be added
 	 */
-	abstract public void addNode(Directory parentNode, Node node) throws FileManagerException;
+	abstract public <T extends Node> T addNode(Directory parentNode, T node) throws FileManagerException;
 	
 	abstract public Directory rootNode() throws FileManagerException;
 	

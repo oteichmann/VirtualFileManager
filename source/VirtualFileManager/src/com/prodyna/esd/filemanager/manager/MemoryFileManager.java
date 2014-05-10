@@ -19,12 +19,14 @@ public class MemoryFileManager implements FileManager {
 	}
 
 	@Override
-	public void addNode(Directory parentNode, Node node)
+	public <T extends Node> T addNode(Directory parentNode, T node)
 			throws FileManagerException {
 		
 		validateAddNode(parentNode, node);
 		
 		parentNode.addChild(node);
+		
+		return null;
 	}
 
 	private void validateAddNode(Directory parentNode, Node node) throws FileManagerException {
