@@ -20,6 +20,12 @@ public enum FileType {
 			return true;
 		}
 	},
+	JPG {
+		@Override
+		public boolean isImage() {
+			return true;
+		}
+	},
 	AVI {
 		@Override
 		public boolean isImage() {
