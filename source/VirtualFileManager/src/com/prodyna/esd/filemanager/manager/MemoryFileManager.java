@@ -8,8 +8,10 @@ import com.prodyna.esd.filemanager.model.Node;
 
 public class MemoryFileManager implements FileManager {
 
+	private Directory rootNode;
+	
 	public static MemoryFileManager createMemoryFileManager() {
-		return null;
+		return new MemoryFileManager();
 	}
 	
 	private MemoryFileManager() {
@@ -23,8 +25,12 @@ public class MemoryFileManager implements FileManager {
 	}
 
 	@Override
-	public void rootNode() throws FileManagerException {
-		// TODO Auto-generated method stub		
+	public Directory rootNode() throws FileManagerException {
+		if (this.rootNode == null) {
+			this.rootNode = new Directory("");
+		}
+		
+		return this.rootNode;
 	}
 
 	@Override

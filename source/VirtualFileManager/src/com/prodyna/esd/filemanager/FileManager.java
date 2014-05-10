@@ -20,7 +20,7 @@ public interface FileManager {
 	 */
 	abstract public void addNode(Directory parentNode, Node node) throws FileManagerException;
 	
-	abstract public void rootNode() throws FileManagerException;
+	abstract public Directory rootNode() throws FileManagerException;
 	
 	abstract public void listNodes() throws FileManagerException;
 	
