@@ -11,7 +11,7 @@ import com.prodyna.esd.filemanager.model.Node;
 class NotifiingFileManagerDecorator implements FileManager, Observable {
 	
 	private FileManager fileManager;
-	private List<Observable> observables;
+	private List<Observer> observers;
 	
 	public NotifiingFileManagerDecorator(FileManager inFileManager) {
 		fileManager = inFileManager;
@@ -25,7 +25,9 @@ class NotifiingFileManagerDecorator implements FileManager, Observable {
 	@Override
 	public <T extends Node> T addNode(Directory parentNode, T node)
 			throws FileManagerException {
-		return fileManager.addNode(parentNode, node);
+		T newNode = fileManager.addNode(parentNode, node);
+		notifyObservers(Event.NODE_ADDED);
+		return newNode;
 	}
 
 	@Override
@@ -43,19 +45,19 @@ class NotifiingFileManagerDecorator implements FileManager, Observable {
 		fileManager.executeAction(action);
 	}
 	
-	public void notifyObservers() {
-		
+	public void notifyObservers(Event event) {
+		for (Observer observer: observers) {
+			observer.notify(event);
+		}
 	}
 
 	@Override
-	public void addObserver() {
-		// TODO Auto-generated method stub
-		
+	public void addObserver(Observer observer) {
+		observers.add(observer);		
 	}
 
 	@Override
-	public void removeObserver() {
-		// TODO Auto-generated method stub
-		
+	public void removeObserver(Observer observer) {
+		observers.remove(observer);		
 	}
 }

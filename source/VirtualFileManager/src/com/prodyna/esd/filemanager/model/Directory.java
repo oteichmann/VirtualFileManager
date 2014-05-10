@@ -1,6 +1,5 @@
 package com.prodyna.esd.filemanager.model;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -66,5 +65,6 @@ public class Directory extends Node implements NodeVisitable {
 	@Override
 	public void accept(NodeVisitor nodeVisitor) {
 		nodeVisitor.visit(this);
-	}	
+	}
+	
 }

@@ -20,7 +20,7 @@ public abstract class Node {
 		return name;
 	}
 
-	public void setName(String name) {
+	void setName(String name) {
 		this.name = name;
 	}
 
@@ -32,7 +32,7 @@ public abstract class Node {
 		return parent;
 	}
 
-	protected void setParent(Node parent) {
+	void setParent(Node parent) {
 		this.parent = parent;
 	}
 	
