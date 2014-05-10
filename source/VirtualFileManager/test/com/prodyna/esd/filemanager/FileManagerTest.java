@@ -30,6 +30,8 @@ public class FileManagerTest {
 			Directory rootNode = fileManager.rootNode();
 			
 			assertNotNull(rootNode);
+			assertNotNull(rootNode.getMetaData());
+			assertNotNull(rootNode.getChildren());
 			assertEquals("A created root node should never change", rootNode, fileManager.rootNode());
 		} catch (FileManagerException e) {
 			fail("No exception was expected");
