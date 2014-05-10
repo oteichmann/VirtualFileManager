@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Directory extends Node {
 	
+	private final static String FILE_SEPARATOR = System.getProperty("file.separator");
+	
 	private List<Node> children = new LinkedList<Node>();
 	
 	public Directory(String name) {
@@ -16,8 +18,8 @@ public class Directory extends Node {
 		return (getParent() == null);
 	}
 
-	public List<Node> getChildren() {
-		return Collections.unmodifiableList(children);
+	public Iterable<Node> getChildren() {
+		return children;
 	}
 
 	public void setChildren(List<Node> children) {
@@ -43,6 +45,18 @@ public class Directory extends Node {
 		}
 		
 		return size;
+	}
+	
+	public String getPath() {
+		
+		if(isRoot()) {
+			return FILE_SEPARATOR;
+		}
+		
+		StringBuilder path = new StringBuilder();
+		path.append(getParent().getPath());
+		path.append(super.getPath());
+		return path.toString();		
 	}
 	
 }

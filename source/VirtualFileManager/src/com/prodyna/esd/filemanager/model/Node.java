@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Node {
-
+	
 	private String name;
 	private Node parent;
 	private final Map<String, String> metaData;
@@ -32,6 +32,10 @@ public abstract class Node {
 
 	protected void setParent(Node parent) {
 		this.parent = parent;
+	}
+	
+	public String getPath() {
+		return this.name;
 	}
 	
 	public abstract long getSize();
