@@ -2,6 +2,12 @@ package com.prodyna.esd.filemanager.metadata;
 
 public enum FileType {
 
+	UNKNOWN {
+		@Override
+		public boolean isImage() {
+			return false;
+		}
+	},
 	TXT {
 		@Override
 		public boolean isImage() {
@@ -9,12 +15,6 @@ public enum FileType {
 		}
 	},
 	PNG {
-		@Override
-		public boolean isImage() {
-			return true;
-		}
-	},
-	IMG {
 		@Override
 		public boolean isImage() {
 			return true;
