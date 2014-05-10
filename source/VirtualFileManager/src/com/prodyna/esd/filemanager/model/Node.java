@@ -3,9 +3,10 @@ package com.prodyna.esd.filemanager.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.prodyna.esd.filemanager.visitor.NodeVisitable;
 import com.prodyna.esd.filemanager.visitor.NodeVisitor;
 
-public abstract class Node {
+public abstract class Node implements NodeVisitable {
 	
 	private String name;
 	private Node parent;
