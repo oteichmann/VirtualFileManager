@@ -1,5 +1,6 @@
 package com.prodyna.esd.filemanager.model;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,8 +19,8 @@ public class Directory extends Node {
 		return (getParent() == null);
 	}
 
-	public Iterable<Node> getChildren() {
-		return children;
+	public List<Node> getChildren() {
+		return Collections.unmodifiableList(children);
 	}
 
 	public void setChildren(List<Node> children) {
