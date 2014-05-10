@@ -9,7 +9,7 @@ import com.prodyna.esd.filemanager.visitor.NodeVisitor;
 
 public class Directory extends Node implements NodeVisitable {
 	
-	private final static String FILE_SEPARATOR = System.getProperty("file.separator");
+	private final static String FILE_SEPARATOR = "/";
 	
 	private List<Node> children = new LinkedList<Node>();
 	
@@ -59,6 +59,7 @@ public class Directory extends Node implements NodeVisitable {
 		StringBuilder path = new StringBuilder();
 		path.append(getParent().getPath());
 		path.append(super.getPath());
+		path.append(FILE_SEPARATOR);
 		return path.toString();		
 	}
 

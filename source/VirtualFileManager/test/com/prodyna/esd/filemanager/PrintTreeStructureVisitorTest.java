@@ -25,14 +25,28 @@ public class PrintTreeStructureVisitorTest {
 
 	@Test
 	public void testPrintTreeStructure() throws FileManagerException {
-		Directory rootNode = fileManager.rootNode();
-		Directory newDirectoryNode = new Directory("Test_Directory");			
 		
-		fileManager.addNode(rootNode, new File("Test1.txt"));	
+		int directoryCount = 0;
+		int fileCount = 0;
+		
+		Directory rootNode = fileManager.rootNode();
+		Directory newDirectoryNode = createDirectory(directoryCount++);			
+		
+		fileManager.addNode(rootNode, createFile(fileCount++));	
 		fileManager.addNode(rootNode, newDirectoryNode);	
-		fileManager.addNode(newDirectoryNode, new File("Test2.txt"));	
-		fileManager.addNode(newDirectoryNode, new File("Test3.txt"));	
+		fileManager.addNode(newDirectoryNode, createFile(fileCount++));	
+		fileManager.addNode(newDirectoryNode, createFile(fileCount++));	
+		fileManager.addNode(newDirectoryNode, createDirectory(directoryCount++));	
+		fileManager.addNode(newDirectoryNode, createDirectory(directoryCount++));	
 		
 		new PrintTreeStructureVisitor().printTreeStructure(rootNode);
+	}
+	
+	private File createFile(int count) {
+		return new File(String.format("file%d.txt", count));
+	}
+	
+	private Directory createDirectory(int count) {
+		return new Directory(String.format("directory%d", count));
 	}
 }
