@@ -1,6 +1,9 @@
 package com.prodyna.esd.filemanager.model;
 
-public class File extends Node {
+import com.prodyna.esd.filemanager.visitor.NodeVisitable;
+import com.prodyna.esd.filemanager.visitor.NodeVisitor;
+
+public class File extends Node implements NodeVisitable {
 	
 	private long size;
 
@@ -14,5 +17,10 @@ public class File extends Node {
 
 	public void setSize(long size) {
 		this.size = size;
+	}
+	
+	@Override
+	public void accept(NodeVisitor nodeVisitor) {
+		nodeVisitor.visit(this);
 	}
 }

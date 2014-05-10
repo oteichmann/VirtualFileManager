@@ -5,7 +5,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Directory extends Node {
+import com.prodyna.esd.filemanager.visitor.NodeVisitable;
+import com.prodyna.esd.filemanager.visitor.NodeVisitor;
+
+public class Directory extends Node implements NodeVisitable {
 	
 	private final static String FILE_SEPARATOR = System.getProperty("file.separator");
 	
@@ -59,5 +62,9 @@ public class Directory extends Node {
 		path.append(super.getPath());
 		return path.toString();		
 	}
-	
+
+	@Override
+	public void accept(NodeVisitor nodeVisitor) {
+		nodeVisitor.visit(this);
+	}	
 }

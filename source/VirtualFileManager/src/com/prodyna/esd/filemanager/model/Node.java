@@ -3,6 +3,8 @@ package com.prodyna.esd.filemanager.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.prodyna.esd.filemanager.visitor.NodeVisitor;
+
 public abstract class Node {
 	
 	private String name;
@@ -39,5 +41,4 @@ public abstract class Node {
 	}
 	
 	public abstract long getSize();
-
 }
