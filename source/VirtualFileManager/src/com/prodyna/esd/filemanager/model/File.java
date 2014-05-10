@@ -23,4 +23,12 @@ public class File extends Node implements NodeVisitable {
 	public void accept(NodeVisitor nodeVisitor) {
 		nodeVisitor.visit(this);
 	}
+	
+	public String getPath() {
+		
+		StringBuilder path = new StringBuilder();
+		path.append(getParent().getPath());
+		path.append(super.getPath());
+		return path.toString();		
+	}
 }
