@@ -8,7 +8,7 @@ public class PrintTreeStructureVisitor implements NodeVisitor {
 	
 	private int treeDepth = 0;
 
-	public void printTreeStructure(Directory directory) {
+	public synchronized void printTreeStructure(Directory directory) {
 		directory.accept(this);
 	}
 	
