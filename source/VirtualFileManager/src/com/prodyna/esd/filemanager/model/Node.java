@@ -6,9 +6,9 @@ import java.util.Map;
 public abstract class Node {
 
 	private String name;
-	private final Map<String, String> metaData;
 	private Node parent;
-
+	private final Map<String, String> metaData;
+	
 	public Node(String name) {
 		this.metaData = new HashMap<String, String>();
 		this.name = name;
@@ -18,8 +18,8 @@ public abstract class Node {
 		return name;
 	}
 
-	public void setName(String inName) {
-		this.name = inName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Map<String, String> getMetaData() {
@@ -33,5 +33,7 @@ public abstract class Node {
 	protected void setParent(Node parent) {
 		this.parent = parent;
 	}
+	
+	public abstract long getSize();
 
 }

@@ -6,17 +6,14 @@ import java.util.List;
 
 public class Directory extends Node {
 	
-	private boolean root = true;
-
 	private List<Node> children = new LinkedList<Node>();
 	
 	public Directory(String name) {
 		super(name);
 	}
 	
-	
 	public boolean isRoot() {
-		return root;
+		return (getParent() == null);
 	}
 
 	public List<Node> getChildren() {
@@ -35,7 +32,17 @@ public class Directory extends Node {
 	@Override
 	public void setParent(Node parent) {
 		super.setParent(parent);
-		this.root = false;
+	}
+
+	@Override
+	public long getSize() {
+		long size = 0;
+		
+		for (Node child : children) {
+			size = size + child.getSize();
+		}
+		
+		return size;
 	}
 	
 }
