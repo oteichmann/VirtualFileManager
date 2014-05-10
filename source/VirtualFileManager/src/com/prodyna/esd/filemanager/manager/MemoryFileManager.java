@@ -24,7 +24,7 @@ public class MemoryFileManager implements FileManager {
 		
 		validateAddNode(parentNode, node);
 		
-		// TODO Auto-generated method stub		
+		parentNode.addChild(node);
 	}
 
 	private void validateAddNode(Directory parentNode, Node node) throws FileManagerException {
