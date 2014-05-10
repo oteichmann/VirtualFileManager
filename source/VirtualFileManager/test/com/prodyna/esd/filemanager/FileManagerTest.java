@@ -1,6 +1,6 @@
 package com.prodyna.esd.filemanager;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -23,6 +23,18 @@ public class FileManagerTest {
 	public void tearDown() throws Exception {
 		fileManager = null; 
 	}
+	
+	@Test
+	public void testRootNode() {		
+		try {
+			Directory rootNode = fileManager.rootNode();
+			
+			assertNotNull(rootNode);
+			assertEquals("A created root node should never change", rootNode, fileManager.rootNode());
+		} catch (FileManagerException e) {
+			fail("No exception was expected");
+		}
+	}
 
 	@Test
 	public void testAddNodeForMemoryFileManager() {		
@@ -38,7 +50,7 @@ public class FileManagerTest {
 		try {			
 			fileManager.addNode(null, null);
 			
-			fail("An exception was exspected");
+			fail("An exception was expected");
 		} catch (FileManagerException exception) { }
 		
 		try {			
