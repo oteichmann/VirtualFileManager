@@ -18,7 +18,7 @@ public abstract class Node {
 		return name;
 	}
 
-	public void setName(String name) {
+	void setName(String name) {
 		this.name = name;
 	}
 
@@ -30,7 +30,7 @@ public abstract class Node {
 		return parent;
 	}
 
-	protected void setParent(Node parent) {
+	void setParent(Node parent) {
 		this.parent = parent;
 	}
 	
@@ -39,5 +39,13 @@ public abstract class Node {
 	}
 	
 	public abstract long getSize();
+	
+//	@Override
+//	protected Node clone() throws CloneNotSupportedException {
+//		Node cloned = (Node) super.clone();
+//		cloned.setName(new String(cloned.getName()));
+//		cloned.metaData = metaData. 
+//		return cloned;
+//	}
 
 }

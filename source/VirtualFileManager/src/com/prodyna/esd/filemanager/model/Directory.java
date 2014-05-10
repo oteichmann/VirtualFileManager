@@ -23,7 +23,7 @@ public class Directory extends Node {
 		return Collections.unmodifiableList(children);
 	}
 
-	public void setChildren(List<Node> children) {
+	void setChildren(List<Node> children) {
 		this.children = children;
 	}
 	
@@ -60,4 +60,11 @@ public class Directory extends Node {
 		return path.toString();		
 	}
 	
+	
+//	@Override
+//	protected Directory clone() throws CloneNotSupportedException {
+//		Directory cloned = (Directory) super.clone();
+//		cloned.setParent(this.getParent().clone());
+//		return cloned;
+//	}
 }
