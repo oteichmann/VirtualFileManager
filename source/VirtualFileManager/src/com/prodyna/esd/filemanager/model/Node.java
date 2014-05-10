@@ -30,7 +30,7 @@ public abstract class Node {
 		return parent;
 	}
 
-	public void setParent(Node parent) {
+	protected void setParent(Node parent) {
 		this.parent = parent;
 	}
 
